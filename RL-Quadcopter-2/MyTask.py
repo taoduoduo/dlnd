@@ -40,6 +40,8 @@ class MyTask():
         if self.sim.pose[2] <= 0 and self.sim.time < self.sim.runtime: 
             reward -= 10
 
+        reward -= 0.1 * abs(self.sim.v[:3]).sum()
+
         return reward
 
 
